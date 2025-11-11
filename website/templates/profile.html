@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+
+
+
+{% block content_section %}
+<div class="profile-container">
+    <div class="profile-header">
+      <h1>Profile</h1>
+    </div>
+
+    <div class="profile-info">
+      <p><span class="label">Name:</span> {{ current_user.Name }}</p>
+      <p><span class="label">Email:</span> {{ current_user.Email }}</p>
+    </div>
+
+    <button class="btn-edit">Edit Profile</button>
+    <p>{{current_user.Password}}</p>
+  </div>
+{% endblock %}

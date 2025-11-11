@@ -1,0 +1,340 @@
+
+.a-profile-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(57, 57, 57);
+    margin-right: 15px;
+}
+
+
+.collapsible-container {
+  position: relative;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-direction: row;
+  background-color: transparent;
+}
+
+.collapsible-btn {
+  padding-top: 5px;
+  background-color: rgb(190, 190, 190);
+  width: 50px;
+  height: 50px;
+  border: 10px;
+  border-color: gray;
+  cursor: pointer;
+  border-radius: 35px;
+  transition: background-color 0.3s ease;
+}
+
+.collapsible-btn:hover {
+  background-color: #45a049;
+}
+
+.collapsible-content {
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  z-index: 10;
+  width: 120px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: none;
+  padding: 10px;
+}
+
+.collapsible-content.open {
+  display: block;
+  animation: fadeIn 0.2s ease;
+}
+.inside-button {
+    display: block;
+    font-family: roboto, Arial;
+    color: rgb(72, 72, 72);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.language-selector {
+      position: relative;
+      
+      display: inline-block;
+    }
+
+    .language-button {
+      background: white;
+      border: 2px solid #ddd;
+      padding: 8px 8px;
+      cursor: pointer;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      
+    }
+
+    .language-button:hover {
+      background: #f5f5f5;
+    }
+
+    .flag {
+      width: 24px;
+      height: 16px;
+      object-fit: cover;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 4px;
+      background: white;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      
+      display: none;
+      z-index: 1000;
+    }
+
+    .dropdown.active {
+      display: block;
+    }
+
+    .language-option {
+      padding: 10px 10px 10px 10px;
+      
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background 0.2s;
+    }
+
+    .language-option:hover {
+      background: #f5f5f5;
+    }
+
+    .language-option:first-child {
+      border-radius: 6px 6px 0 0;
+    }
+
+    .language-option:last-child {
+      border-radius: 0 0 6px 6px;
+    }
+
+    .languageArrow {
+      margin-left: auto;
+      transition: transform 0.3s;
+    }
+
+    .languageArrow.rotated {
+      transform: rotate(180deg);
+    }
+
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+
+    .profile-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .profile-button {
+      background: transparent;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 0px;
+      cursor: pointer;
+      margin-right: 15px;
+      display: flex;
+      align-items: center;
+      
+      font-size: 16px;
+      transition: background 0.2s;
+    }
+
+    .profile-button:hover {
+      background: rgba(204, 204, 204, 0.3);
+    }
+
+    .profile-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .profile-name {
+      font-size: 22px;
+      font-weight: 600;
+      color: #333;
+      margin-right: 15px;
+    }
+
+    
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: white;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      min-width: 200px;
+      display: none;
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    .dropdown-menu.active {
+      display: block;
+      animation: slideDown 0.2s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .login-button {
+    
+    width: 120px;
+    padding: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    margin-top: 0;
+    
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 171, 0);
+    border: none;
+    border-radius: 5px;
+    
+}
+.login-button:hover {
+    background-color: rgb(0, 79, 0);
+    color: white;
+}
+
+    .dropdown-header {
+      padding: 16px;
+      border-bottom: 1px solid #eee;
+      background: #f9f9f9;
+    }
+
+    .dropdown-user-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .dropdown-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .dropdown-user-details h4 {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 2px;
+    }
+
+    .dropdown-user-details p {
+      font-size: 12px;
+      color: #666;
+    }
+
+    .menu-item {
+      padding: 12px 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: background 0.2s;
+      color: #333;
+      text-decoration: none;
+      border: none;
+      width: 100%;
+      background: none;
+      font-size: 14px;
+    }
+
+    .menu-item:hover {
+      background: #f5f5f5;
+    }
+
+    .menu-item.logout {
+      color: #e74c3c;
+      border-top: 1px solid #eee;
+    }
+
+    .menu-item.logout:hover {
+      background: #fee;
+    }
+
+    .menu-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .divider {
+      height: 1px;
+      background: #eee;
+      margin: 4px 0;
+    }
+.profileArrow {
+      margin-left: auto;
+      transition: transform 0.3s;
+    }
+
+.profileArrow.rotated {
+      transform: rotate(180deg);
+    }
+
+.nolog-button {
+  margin-right: 15px;
+  border: none;
+  background-color: transparent;
+}
+
+

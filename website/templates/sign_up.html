@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}Sign Up{% endblock %}
+
+
+
+
+{% block content_section %}
+<form method = "POST">
+    <div class = "div-sign-up-container">
+        <h1 class = "header-sign-up" align="center">Sign Up</h1>
+        <div class = div-register-form>
+            <label 
+            class = "label-register" 
+            for="email>">Email Address</label>
+
+            <input 
+            type="email" 
+            class = "input-register" 
+            id="email" 
+            name="email" 
+            placeholder="Enter email" >
+
+        </div>
+
+        <div class = div-register-form>
+            <label 
+            class = "label-register" 
+            for="name>">Name</label>
+
+            <input 
+            type="name" 
+            class = "input-register" 
+            id="name" 
+            name="name" 
+            placeholder="Enter name" >
+
+        </div>
+
+        <div class = div-register-form>
+            <label 
+            class = "label-register" 
+            for="password>">Password</label>
+
+            <input 
+            type="password" 
+            class = "input-register" 
+            id="password" 
+            name="password1" 
+            placeholder="Enter password" >
+
+        </div>
+
+        <div class = div-register-form>
+            <label 
+            class = "label-register" 
+            for="password>">Confirm Password</label>
+            
+            <input 
+            type="password" 
+            class = "input-register" 
+            id="password" 
+            name="password2" 
+            placeholder="Enter password" >
+
+        </div>
+        <p>
+            Already have an account? Please <a href = "/login">Login</a>.
+        </p>
+
+        <div class = "div-submit-button">
+            <button class = "login-button">
+                Submit
+            </button>
+        </div>
+        
+    </div>
+</form>
+{% endblock %}

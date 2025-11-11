@@ -1,0 +1,35 @@
+.div-header {
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.1)
+    
+}
+
+.div-name-section {
+    margin-left: 10px;
+    height: 70px;
+    
+    flex-shrink: 0;
+    background-color: transparent;
+}
+@media (max-width: 768px) {
+  .div-name-section {
+    display: none; /* hidden on screens 768px or smaller */
+  }
+}
+.image-logo {
+  padding-left: 10px;;
+  height: 100%;
+}
+
+
+
+
+
+
+
+

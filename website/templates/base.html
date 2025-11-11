@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{url_for('static', filename='general.css')}}">
+        <link rel="stylesheet" href ="{{url_for('static', filename='left_panel.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='right_panel.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='header_left.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='header_center.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='header_right.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='content_section.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='center_panel.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='registration.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='profile.css')}}">
+        
+
+
+        <title>{% block title %}Home{% endblock %}</title>
+
+
+    </head>
+
+<body class="body-container">
+    <div class = "div-header">
+
+        <div class = "div-name-section">
+            <img class="image-logo" src="{{url_for('static', filename='images/logo.png')}}" ></img>
+        </div>
+
+        <div class = "div-menu-section">
+            
+            {% if user.is_authenticated %}
+            <a href="/home">
+                <button 
+                class = "button-menu {% if request.path == '/home' %}active{% endif %}">Home</button>  
+            </a>
+            {% endif %}
+
+            <a href="/courses">
+                <button class = "button-menu {% if request.path == '/courses' %}active{% endif %}">Courses </button>
+            </a>
+
+            <a href="/about">
+                <button class = "button-menu {% if request.path == '/about' %}active{% endif %}">About</button>
+            </a>
+            
+            <a href="/donate">
+                <button class = "button-menu {% if request.path == '/donate' %}active{% endif %}">Donate</button>
+            </a>
+            
+            
+        </div>
+        {% if user.is_authenticated %}
+            
+            <div class="profile-container">
+                <button class="profile-button" id="profileBtn">
+                <span class="profileArrow" id="profileArrow">▼</span>
+                <span class="profile-name">{{current_user.Name}}</span>
+                <div class="profile-avatar"></div>
+                
+                </button>
+                
+                <div class="dropdown-menu" id="dropdownMenu">
+                <div class="dropdown-header">
+                    <div class="dropdown-user-info">
+                        <div class="dropdown-avatar"></div>
+                        <div class="dropdown-user-details">
+                            <p>{{current_user.Email}}</p>
+                            <h4>{{current_user.Name}}</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="menu-item" id="profileOption">
+                    <span class="menu-icon">👤</span>
+                    <span>My Profile</span>
+                </button>
+
+                <button class="menu-item" id="settingsOption">
+                    <span class="menu-icon">⚙️</span>
+                    <span>Settings</span>
+                </button>
+
+                <button class="menu-item" id="helpOption">
+                    <span class="menu-icon">❓</span>
+                    <span>Help & Support</span>
+                </button>
+
+                <div class="divider"></div>
+
+                <button class="menu-item logout" id="logoutOption">
+                    <span class="menu-icon">🚪</span>
+                    <span>Logout</span>
+                </button>
+                </div>
+            </div>
+            
+        
+        {% else %}
+
+            {# nolog right section #}
+        <div class="div-login-panel">
+            <a href="/login">
+                    <button class = "login-button">Login </button>
+                </a>
+            <a href="/signup">
+                <button class = "login-button">Sign Up </button>
+            </a>
+        </div>
+            
+            
+        
+        {% endif %}
+
+        {# language collapsable section #}
+        
+       <div class="language-selector">
+                        <button class="language-button" id="languageBtn">
+                            <img src="{{url_for('static', filename='flags/flag-eng.png')}}" alt="English" class="flag" id="selectedFlag">
+                            <span id="selectedLang"></span>
+                            <span class="languageArrow" id="languageArrow">▼</span>
+                        </button>
+                        
+                        <div class="dropdown" id="dropdown">
+                            <div class="language-option" data-lang="en" data-flag="us">
+                                <img src="{{url_for('static', filename='flags/flag-eng.png')}}" alt="English" class="flag">
+                                
+                            </div>
+                            <div class="language-option" data-lang="cz" data-flag="cz">
+                                <img src="{{url_for('static', filename='flags/flag-cze.png')}}"  alt="Czech" class="flag">
+                                
+                            </div>
+                            <div class="language-option" data-lang="sk" data-flag="sk">
+                                <img src="{{url_for('static', filename='flags/flag-svk.png')}}"  alt="Slovak" class="flag">
+                                
+                            </div>
+                        </div>
+                    </div>
+
+
+        
+            
+    </div>
+
+{% with messages = get_flashed_messages(with_categories = true) %}
+    {% if messages %}
+
+        {% for category, message in messages %}
+            {% if category == 'error'%}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+            {% else %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+{% endwith %} 
+
+    {% block content_section %}
+
+    
+    <div class = "div-content-section">
+        <div class = "div-left-panel">
+            <div class = "div-logo-panel">
+                <img class="image-animal-general" src="{{url_for('static', filename='images/zvire_default.png')}}">
+
+            </div>
+
+            
+            
+        </div>
+
+        
+            
+        <div class = "div-main-content-panel">
+                {% block content %}
+            
+                {% endblock %}
+        
+            
+        </div>
+
+        <div class = "div-right-panel">
+            
+            
+        </div>
+
+    </div>
+    {% endblock %}
+
+
+
+
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+{% block javascript %}
+    <script type="text/javascript">
+      function deleteNote(noteId) {
+  fetch("/delete-note", {
+    method: "POST",
+    body: JSON.stringify({ noteId: noteId }),
+  }).then((_res) => {
+    window.location.href = "/";
+  });
+  }
+  
+</script>
+{% endblock %}
+
+<script src="{{ url_for('static', filename='script_profile.js') }}"></script>
+<script src="{{ url_for('static', filename='script_language.js') }}"></script>
+
+</body>
+
+
+
+
+
+
+
+</html>

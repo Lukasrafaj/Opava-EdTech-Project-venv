@@ -1,0 +1,35 @@
+.div-main-content-panel {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    justify-content: left;
+    gap: 40px;
+    
+    
+    
+    height: 200px;
+    width: 600px;
+    
+    padding-top: 40px;
+}
+
+.content-button {
+        
+    width: 200px;
+    height: 100px;
+    
+    
+    background-color: white;
+    border: 3px solid green;
+    border-radius: 10px;
+    font-size: 24px;
+    color: green;
+    font-weight: bold;
+    cursor: pointer;
+    
+
+}
+.content-button:hover {
+        background-color: green;
+        color: white;
+      }

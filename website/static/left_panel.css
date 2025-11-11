@@ -1,0 +1,37 @@
+.div-left-panel {
+    display: grid;
+    grid-template-rows: 300px 150px;
+    width: 250px;
+    
+
+}
+@media (max-width: 768px) {
+  .div-left-panel {
+    display: none; /* hidden on screens 768px or smaller */
+  }
+}
+.div-logo-panel {
+    background-size: cover;      /* scales to cover entire container */
+    background-position: center;
+    overflow: hidden;
+}
+.image-animal-general {
+  
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* or 'contain', 'fill', 'scale-down' */
+    object-position: center; /* adjust positioning */
+}
+.div-login-panel {
+    gap: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+
+.div-submit-button {
+    margin-top: 50px;
+}

@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    
+}
+p {
+    margin: 0;
+    font-family: roboto, Arial;
+}
+
+
+
+
+
+
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+.body-container {
+  max-width: 1200px; /* or any value */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px; /* minimal padding on small screens */
+}
+

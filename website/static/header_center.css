@@ -1,0 +1,46 @@
+
+.div-menu-section {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 100%;
+    
+}
+.button-menu {
+    font-family: roboto, Arial;
+    background-color: transparent;
+    border: none;
+    
+    color: rgb(64, 64, 64);
+    border-right: 2px solid green;
+    padding-right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    height: 50px;
+    
+}
+
+.button-menu:hover {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-color: rgba(121, 121, 121, 0.5);
+    
+}
+.button-menu.active {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    
+}
+
+
+
+
+
+
+
