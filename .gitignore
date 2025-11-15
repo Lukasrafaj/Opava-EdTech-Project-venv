@@ -1,6 +1,6 @@
 venv
 train.py
-main_dev.py
+main_debug.py
 __pycache__/
 *.pyc
 instance/
