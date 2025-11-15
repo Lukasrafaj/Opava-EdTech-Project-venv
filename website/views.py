@@ -1,5 +1,6 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, session, redirect, url_for
 from flask_login import login_required, current_user
+from flask_babel import _
 
 views = Blueprint('views', __name__)
 
@@ -29,4 +30,6 @@ def about():
 @views.route('/donate')
 def donate():
     return render_template('donate.html')
+
+
 

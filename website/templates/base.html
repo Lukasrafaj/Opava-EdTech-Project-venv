@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="Debug locale: {{ current_locale }}">
     <head>
     <link
       rel="stylesheet"
@@ -48,24 +48,25 @@
             {% if user.is_authenticated %}
             <a href="/home">
                 <button 
-                class = "button-menu {% if request.path == '/home' %}active{% endif %}">Home</button>  
+                class = "button-menu {% if request.path == '/home' %}active{% endif %}">{{_('Home')}}</button>  
             </a>
             {% endif %}
 
             <a href="/courses">
-                <button class = "button-menu {% if request.path == '/courses' %}active{% endif %}">Courses </button>
+                <button class = "button-menu {% if request.path == '/courses' %}active{% endif %}">{{_('Courses')}}</button>
             </a>
 
             <a href="/about">
-                <button class = "button-menu {% if request.path == '/about' %}active{% endif %}">About</button>
+                <button class = "button-menu {% if request.path == '/about' %}active{% endif %}">{{_("About")}}</button>
             </a>
             
             <a href="/donate">
-                <button class = "button-menu {% if request.path == '/donate' %}active{% endif %}">Donate</button>
+                <button class = "button-menu {% if request.path == '/donate' %}active{% endif %}">{{_('Donate')}}</button>
             </a>
             
             
         </div>
+        
         {% if user.is_authenticated %}
             
             <div class="profile-container">
@@ -127,31 +128,19 @@
             
         
         {% endif %}
+        <div class="language_sector">
+            <a href="{{ url_for('lang.set_language', lang='en') }}">🇬🇧</a>
+            <a href="{{ url_for('lang.set_language', lang='cs') }}">🇨🇿</a>
+            <a href="{{ url_for('lang.set_language', lang='sk') }}">🇸🇰</a>
+        </div>
+
 
         {# language collapsable section #}
         
-       <div class="language-selector">
-                        <button class="language-button" id="languageBtn">
-                            <img src="{{url_for('static', filename='flags/flag-eng.png')}}" alt="English" class="flag" id="selectedFlag">
-                            <span id="selectedLang"></span>
-                            <span class="languageArrow" id="languageArrow">▼</span>
-                        </button>
-                        
-                        <div class="dropdown" id="dropdown">
-                            <div class="language-option" data-lang="en" data-flag="us">
-                                <img src="{{url_for('static', filename='flags/flag-eng.png')}}" alt="English" class="flag">
-                                
-                            </div>
-                            <div class="language-option" data-lang="cz" data-flag="cz">
-                                <img src="{{url_for('static', filename='flags/flag-cze.png')}}"  alt="Czech" class="flag">
-                                
-                            </div>
-                            <div class="language-option" data-lang="sk" data-flag="sk">
-                                <img src="{{url_for('static', filename='flags/flag-svk.png')}}"  alt="Slovak" class="flag">
-                                
-                            </div>
-                        </div>
-                    </div>
+
+        
+       
+
 
 
         
@@ -183,6 +172,9 @@
     {% endif %}
 
 {% endwith %} 
+
+
+    
 
     {% block content_section %}
 
@@ -251,7 +243,8 @@
 {% endblock %}
 
 <script src="{{ url_for('static', filename='script_profile.js') }}"></script>
-<script src="{{ url_for('static', filename='script_language.js') }}"></script>
+<!--<script src="{{ url_for('static', filename='script_language.js') }}"></script>-->
+<!-- <script src="{{ url_for('static', filename='language_change.js') }}"></script>-->
 
 </body>
 

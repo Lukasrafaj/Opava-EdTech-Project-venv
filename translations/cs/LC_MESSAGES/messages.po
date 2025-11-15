@@ -1,0 +1,111 @@
+# Czech translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-11-13 22:44+0100\n"
+"PO-Revision-Date: 2025-11-13 14:48+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: cs\n"
+"Language-Team: cs <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: website/auth.py:22
+msgid "Logged in successfully!"
+msgstr "bbb"
+
+#: website/auth.py:27
+msgid "Incorrect password"
+msgstr ""
+
+#: website/auth.py:29
+msgid "Email does not exist!"
+msgstr ""
+
+#: website/auth.py:50
+msgid "Please enter your current password."
+msgstr ""
+
+#: website/auth.py:52
+msgid "Please enter the new password twice."
+msgstr ""
+
+#: website/auth.py:54
+msgid "New passwords do not match."
+msgstr ""
+
+#: website/auth.py:56
+msgid "New password must be at least 7 characters long."
+msgstr ""
+
+#: website/auth.py:58
+msgid "No existing password is set for this account."
+msgstr ""
+
+#: website/auth.py:62
+msgid "Current password is incorrect."
+msgstr ""
+
+#: website/auth.py:67
+msgid "Password updated successfully."
+msgstr ""
+
+#: website/auth.py:70
+msgid "Error verifying password. Please try again."
+msgstr ""
+
+#: website/auth.py:89
+msgid "Email already exists!"
+msgstr ""
+
+#: website/auth.py:91
+msgid "Email must be greater than 3 characters!"
+msgstr ""
+
+#: website/auth.py:93
+msgid "Name must greater than 1 character!"
+msgstr ""
+
+#: website/auth.py:95
+msgid "Passwords do not match!"
+msgstr ""
+
+#: website/auth.py:97
+msgid "Passwords must contain at least 7 characters!"
+msgstr ""
+
+#: website/auth.py:103
+msgid "Account created!!"
+msgstr ""
+
+#: website/templates/base.html:51
+msgid "Home"
+msgstr "Domu"
+
+#: website/templates/base.html:56
+msgid "Courses"
+msgstr "Kurzi"
+
+#: website/templates/base.html:60
+msgid "About"
+msgstr "Onas"
+
+#: website/templates/base.html:64
+msgid "Donate"
+msgstr "Daruj"
+
+#: website/templates/base.html:203
+msgid "TESTSTRING"
+msgstr "CS teststring"
+
+#~ msgid "test"
+#~ msgstr "cesky"
+
