@@ -3,3 +3,4 @@ train.py
 main_dev.py
 __pycache__/
 *.pyc
+instance/
