@@ -4,3 +4,4 @@ main_debug.py
 __pycache__/
 *.pyc
 instance/
+terminal_commands.md

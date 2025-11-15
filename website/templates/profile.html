@@ -1,31 +1,31 @@
 {% extends "base.html" %}
-{% block title %}Login{% endblock %}
+{% block title %}{{ _('Profile') }}{% endblock %}
 
 
 
 {% block content_section %}
 <div class="div-profile-container">
     <div class="div-profile-header">
-      <h1 class="header-sign-up" align="center">Profile</h1>
+      <h1 class="header-sign-up" align="center">{{ _('Profile') }}</h1>
     </div>
     <div class="divider"></div>
     
     <div class="profile-info">
-      <p class = "profile-data"><span class="profile-label">Name:</span> {{ current_user.Name }}</p>
+      <p class = "profile-data"><span class="profile-label">{{ _('Name:') }}</span> {{ current_user.Name }}</p>
     </div>
     
 
     <div class="profile-info">
-      <p class = "profile-data"><span class="profile-label">Email:</span> {{ current_user.Email }}</p>
+      <p class = "profile-data"><span class="profile-label">{{ _('Email:') }}</span> {{ current_user.Email }}</p>
     </div>
     
 
       <div class="profile-info">
-    <p class = "profile-data"><span class="profile-label">Locale:</span> {{ current_user.lang }}</p> 
+    <p class = "profile-data"><span class="profile-label">{{ _('Locale:') }}</span> {{ current_user.lang }}</p> 
     </div>
     
     <div class="profile-info">
-      <button class="login-button">Edit Profile</button>
+      <button class="login-button">{{ _('Edit Profile') }}</button>
     </div>
     
   </div>

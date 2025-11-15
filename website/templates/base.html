@@ -36,6 +36,7 @@
         <link rel="stylesheet" href="{{url_for('static', filename='profile.css')}}">
         <link rel="stylesheet" href="{{url_for('static', filename='settings.css')}}">
         <link rel="stylesheet" href="{{url_for('static', filename='settings-language.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='language-button.css')}}">
         
 
 
@@ -98,24 +99,24 @@
 
                 <button class="menu-item" id="profileOption">
                     <span class="menu-icon">👤</span>
-                    <span>My Profile</span>
+                    <span>{{ _('My Profile') }}</span>
                 </button>
 
                 <button class="menu-item" id="settingsOption">
                     <span class="menu-icon">⚙️</span>
-                    <span>Settings</span>
+                    <span>{{ _('Settings') }}</span>
                 </button>
 
                 <button class="menu-item" id="helpOption">
                     <span class="menu-icon">❓</span>
-                    <span>Help & Support</span>
+                    <span>{{ _('Help & Support') }}</span>
                 </button>
 
                 <div class="divider"></div>
 
                 <button class="menu-item logout" id="logoutOption">
                     <span class="menu-icon">🚪</span>
-                    <span>Logout</span>
+                    <span>{{ _('Logout') }}</span>
                 </button>
                 </div>
             </div>
@@ -126,23 +127,97 @@
             {# nolog right section #}
         <div class="div-login-panel">
             <a href="/login">
-                    <button class = "login-button">Login </button>
+                    <button class = "login-button">{{ _('Login') }} </button>
                 </a>
             <a href="/signup">
-                <button class = "login-button">Sign Up </button>
+                <button class = "login-button">{{ _('Sign Up') }} </button>
             </a>
-        </div>
+        
 
             
             
         
         {% endif %}
         {% if not user.is_authenticated %}
-            <div class="language_sector">
-                <a href="{{ url_for('lang.set_language', lang='en') }}">🇬🇧</a>
-                <a href="{{ url_for('lang.set_language', lang='cs') }}">🇨🇿</a>
-                <a href="{{ url_for('lang.set_language', lang='sk') }}">🇸🇰</a>
+        <div class="language-selector">
+            <button class="language-btn" id="languageBtn" type="button">
+                <span id="currentLangFlag">🇬🇧</span>
+                <span id="currentLangName">English</span>
+            </button>
+            
+            <div class="language-options" id="languageOptions">
+                <div class="language-option" data-lang="en" data-url="{{ url_for('lang.set_language', lang='en') }}">
+                    🇬🇧 English
+                </div>
+                <div class="language-option" data-lang="cs" data-url="{{ url_for('lang.set_language', lang='cs') }}">
+                    🇨🇿 Czech
+                </div>
+                <div class="language-option" data-lang="sk" data-url="{{ url_for('lang.set_language', lang='sk') }}">
+                    🇸🇰 Slovak
+                </div>
             </div>
+        </div>
+            
+        </div>
+            
+            <script>
+                (function() {
+                    const currentLocale = "{{ session.get('lang', 'en') }}";
+                    const languageBtn = document.getElementById('languageBtn');
+                    const languageOptions = document.getElementById('languageOptions');
+                    const currentLangFlag = document.getElementById('currentLangFlag');
+                    const currentLangName = document.getElementById('currentLangName');
+                    
+                    const langMap = {
+                        'en': { flag: '🇬🇧', name: 'English' },
+                        'cs': { flag: '🇨🇿', name: 'Czech' },
+                        'sk': { flag: '🇸🇰', name: 'Slovak' }
+                    };
+                    
+                    console.log('Language selector initialized');
+                    console.log('Current locale:', currentLocale);
+                    
+                    // Set current language display
+                    if (langMap[currentLocale]) {
+                        currentLangFlag.textContent = langMap[currentLocale].flag;
+                        currentLangName.textContent = langMap[currentLocale].name;
+                    }
+                    
+                    // Highlight active language option
+                    const options = document.querySelectorAll('.language-option');
+                    options.forEach(option => {
+                        const lang = option.getAttribute('data-lang');
+                        if (lang === currentLocale) {
+                            option.classList.add('active');
+                        }
+                        
+                        // Add click handler
+                        option.addEventListener('click', function() {
+                            const url = this.getAttribute('data-url');
+                            console.log('Navigating to:', url);
+                            window.location.href = url;
+                        });
+                    });
+                    
+                    // Toggle dropdown
+                    languageBtn.addEventListener('click', function(e) {
+                        console.log('Button clicked!');
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const isShowing = languageOptions.classList.contains('show');
+                        console.log('Currently showing:', isShowing);
+                        languageOptions.classList.toggle('show');
+                        console.log('After toggle:', languageOptions.classList.contains('show'));
+                    });
+                    
+                    // Close dropdown when clicking outside
+                    document.addEventListener('click', function(e) {
+                        if (!languageBtn.contains(e.target) && !languageOptions.contains(e.target)) {
+                            languageOptions.classList.remove('show');
+                        }
+                    });
+                })();
+            </script>
         {% endif %}
 
 
@@ -166,9 +241,9 @@
             {% if category == 'error'%}
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         {{ message }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <button type="button" class="close" data-dismiss="alert" aria-label="{{ _('Close') }}">
             <span aria-hidden="true">&times;</span>
-        </button>
+            </button>
     </div>
 
             {% else %}
@@ -259,11 +334,6 @@
 <script src="{{ url_for('static', filename='settings-language.js') }}"></script>
 <script src="{{ url_for('static', filename='courses-buttons.js') }}"></script>
 </body>
-
-
-
-
-
 
 
 </html>

@@ -149,7 +149,7 @@
     }
     .login-button {
     
-    width: 120px;
+    min-width: 120px;
     padding: 10px;
     margin-top: 20px;
     cursor: pointer;
@@ -267,4 +267,24 @@
   flex-direction: column;
   gap: 0px;
   
+}
+.div-login-panel {
+    gap: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+.input-register-nolog {
+    
+    height: 45px;
+    font-size: 18px;
+    padding-left: 10px;
+    border-width: 1px;
+    border-radius: 3px;
+    border-style: solid;
+    
+    border-color: rgb(209, 209, 209);
+    
 }

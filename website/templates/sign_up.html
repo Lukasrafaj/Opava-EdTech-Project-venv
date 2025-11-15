@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Sign Up{% endblock %}
+{% block title %}{{ _('Sign Up') }}{% endblock %}
 
 
 
@@ -7,11 +7,11 @@
 {% block content_section %}
 <form method = "POST">
     <div class = "div-sign-up-container">
-        <h1 class = "header-sign-up" align="center">Sign Up</h1>
+        <h1 class = "header-sign-up" align="center">{{ _('Sign Up') }}</h1>
         <div class = div-register-form>
             <label 
             class = "label-register" 
-            for="email">Email Address</label>
+            for="email">{{ _('Email Address') }}</label>
 
             <input 
             type="email" 
@@ -25,7 +25,7 @@
         <div class = "div-register-form">
             <label 
             class = "label-register" 
-            for="name">Name</label>
+            for="name">{{ _('Name') }}</label>
 
             <input 
             type="name" 
@@ -39,7 +39,7 @@
         <div class = "div-register-form">
             <label 
             class = "label-register" 
-            for="password">Password</label>
+            for="password">{{ _('Password') }}</label>
 
             <input 
             type="password" 
@@ -53,7 +53,7 @@
         <div class = "div-register-form">
             <label 
             class = "label-register" 
-            for="password">Confirm Password</label>
+            for="password">{{ _('Confirm Password') }}</label>
             
             <input 
             type="password" 
@@ -64,12 +64,12 @@
 
         </div>
         <p>
-            Already have an account? Please <a href = "/login">Login</a>.
+            {{ _('Already have an account? Please') }} <a href = "/login">{{ _('Login') }}</a>.
         </p>
 
         <div class = "div-submit-button">
             <button class = "login-button">
-                Submit
+                {{ _('Submit') }}
             </button>
         </div>
         

@@ -1,18 +1,17 @@
-# Slovak translations for PROJECT.
+# Translations template for PROJECT.
 # Copyright (C) 2025 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-11-15 13:14+0100\n"
-"PO-Revision-Date: 2025-11-13 14:48+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: sk\n"
-"Language-Team: sk <LL@li.org>\n"
-"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,163 +19,163 @@ msgstr ""
 
 #: website/auth.py:22
 msgid "Logged in successfully!"
-msgstr "Úspešne prihlásenie!"
+msgstr ""
 
 #: website/auth.py:27
 msgid "Incorrect password"
-msgstr "Nesprávne heslo"
+msgstr ""
 
 #: website/auth.py:29
 msgid "Email does not exist!"
-msgstr "Email neexistuje!"
+msgstr ""
 
 #: website/auth.py:50
 msgid "Please enter your current password."
-msgstr "Zadajte prosím svoje aktuálne heslo."
+msgstr ""
 
 #: website/auth.py:52
 msgid "Please enter the new password twice."
-msgstr "Zadajte prosím nové heslo dvakrát."
+msgstr ""
 
 #: website/auth.py:54
 msgid "New passwords do not match."
-msgstr "Nové heslá sa nezhodujú."
+msgstr ""
 
 #: website/auth.py:56
 msgid "New password must be at least 7 characters long."
-msgstr "Nové heslo musí mať aspoň 7 znakov."
+msgstr ""
 
 #: website/auth.py:58
 msgid "No existing password is set for this account."
-msgstr "Pre tento účet nie je nastavené žiadne heslo."
+msgstr ""
 
 #: website/auth.py:62
 msgid "Current password is incorrect."
-msgstr "Aktuálne heslo je nesprávne."
+msgstr ""
 
 #: website/auth.py:67
 msgid "Password updated successfully."
-msgstr "Heslo bolo úspešne zmenené."
+msgstr ""
 
 #: website/auth.py:70
 msgid "Error verifying password. Please try again."
-msgstr "Chyba pri overovaní hesla. Skúste to prosím znova."
+msgstr ""
 
 #: website/auth.py:80
 msgid "Submitted email is the same as current email"
-msgstr "Zadaný email je rovnaký ako aktuálny email"
+msgstr ""
 
 #: website/auth.py:82 website/auth.py:132
 msgid "Email must be greater than 3 characters!"
-msgstr "Email musí mať viac ako 3 znaky!"
+msgstr ""
 
 #: website/auth.py:84
 msgid "Email successfully changed"
-msgstr "Email bol úspešne zmenený"
+msgstr ""
 
 #: website/auth.py:99
 msgid "Submitted name is the same as current name"
-msgstr "Zadané meno je rovnaké ako aktuálne meno"
+msgstr ""
 
 #: website/auth.py:101
 msgid "Name must be greater than 1 characters!"
-msgstr "Meno musí mať viac ako 1 znak!"
+msgstr ""
 
 #: website/auth.py:103
 msgid "Name successfully changed"
-msgstr "Meno bolo úspešne zmenené"
+msgstr ""
 
 #: website/auth.py:130
 msgid "Email already exists!"
-msgstr "Email už existuje!"
+msgstr ""
 
 #: website/auth.py:134
 msgid "Name must greater than 1 character!"
-msgstr "Meno musí mať viac ako 1 znak!"
+msgstr ""
 
 #: website/auth.py:136
 msgid "Passwords do not match!"
-msgstr "Heslá sa nezhodujú!"
+msgstr ""
 
 #: website/auth.py:138
 msgid "Passwords must contain at least 7 characters!"
-msgstr "Heslá musia obsahovať aspoň 7 znakov!"
+msgstr ""
 
 #: website/auth.py:144
 msgid "Account created!!"
-msgstr "Účet bol vytvorený!"
+msgstr ""
 
 #: website/templates/about.html:2 website/templates/base.html:68
 msgid "About"
-msgstr "O nás"
+msgstr ""
 
 #: website/templates/about.html:8
 msgid "We are a bunch of scientists trying to reshape world education!"
-msgstr "Sme skupinou vedcov, ktorí sa snažia zmeniť svetové vzdelávanie!"
+msgstr ""
 
 #: website/templates/base.html:59 website/templates/default.html:2
 #: website/templates/home.html:2
 msgid "Home"
-msgstr "Domov"
+msgstr ""
 
 #: website/templates/base.html:64 website/templates/courses.html:2
 msgid "Courses"
-msgstr "Kurzy"
+msgstr ""
 
 #: website/templates/base.html:72 website/templates/donate.html:2
 msgid "Donate"
-msgstr "Daruj"
+msgstr ""
 
 #: website/templates/base.html:101
 msgid "My Profile"
-msgstr "Môj profil"
+msgstr ""
 
 #: website/templates/base.html:106
 msgid "Settings"
-msgstr "Nastavenia"
+msgstr ""
 
 #: website/templates/base.html:111
 msgid "Help & Support"
-msgstr "Pomoc a podpora"
+msgstr ""
 
 #: website/templates/base.html:118
 msgid "Logout"
-msgstr "Odhlásit sa"
+msgstr ""
 
 #: website/templates/base.html:129 website/templates/login.html:2
 #: website/templates/login.html:9 website/templates/login.html:43
 #: website/templates/sign_up.html:67
 msgid "Login"
-msgstr "Prihlásenie"
+msgstr ""
 
 #: website/templates/base.html:132 website/templates/sign_up.html:2
 #: website/templates/sign_up.html:10
 msgid "Sign Up"
-msgstr "Zaregistrovať sa"
+msgstr ""
 
 #: website/templates/base.html:169
 msgid "Close"
-msgstr "Zatvoriť"
+msgstr ""
 
 #: website/templates/courses.html:7
 msgid "Physics"
-msgstr "Fyzika"
+msgstr ""
 
 #: website/templates/courses.html:11
 msgid "Mathematics"
-msgstr "Matematika"
+msgstr ""
 
 #: website/templates/donate.html:7
 msgid "If you feel you have some extra coin in your pocket, please give it to us!"
-msgstr "Ak máte nejaké voľné peniaze, prosím, darujte nám ich!"
+msgstr ""
 
 #: website/templates/login.html:13 website/templates/sign_up.html:14
 msgid "Email Address"
-msgstr "E-mailová adresa"
+msgstr ""
 
 #: website/templates/login.html:20 website/templates/sign_up.html:21
 msgid "Enter email"
-msgstr "Zadajte email"
+msgstr ""
 
 #: website/templates/login.html:27
 #: website/templates/setting_templates/settings-email.html:24
@@ -185,40 +184,40 @@ msgstr "Zadajte email"
 #: website/templates/setting_templates/settings-password.html:24
 #: website/templates/sign_up.html:42
 msgid "Password"
-msgstr "Heslo"
+msgstr ""
 
 #: website/templates/login.html:34 website/templates/sign_up.html:49
 #: website/templates/sign_up.html:63
 msgid "Enter password"
-msgstr "Zadajte heslo"
+msgstr ""
 
 #: website/templates/login.html:38
 msgid "Don't have an account? Please"
-msgstr "Nemáte účet? Prosím"
+msgstr ""
 
 #: website/templates/login.html:38
 msgid "Sign In"
-msgstr "Prihlasovať sa"
+msgstr ""
 
 #: website/templates/profile.html:2 website/templates/profile.html:9
 msgid "Profile"
-msgstr "Profil"
+msgstr ""
 
 #: website/templates/profile.html:14
 msgid "Name:"
-msgstr "Meno:"
+msgstr ""
 
 #: website/templates/profile.html:19
 msgid "Email:"
-msgstr "Email:"
+msgstr ""
 
 #: website/templates/profile.html:24
 msgid "Locale:"
-msgstr "Jazyk:"
+msgstr ""
 
 #: website/templates/profile.html:28
 msgid "Edit Profile"
-msgstr "Upraviť profil"
+msgstr ""
 
 #: website/templates/setting_templates/settings-email.html:14
 #: website/templates/setting_templates/settings-language.html:14
@@ -226,117 +225,111 @@ msgstr "Upraviť profil"
 #: website/templates/setting_templates/settings-password.html:14
 #: website/templates/sign_up.html:28
 msgid "Name"
-msgstr "Meno"
+msgstr ""
 
 #: website/templates/sign_up.html:35
 msgid "Enter name"
-msgstr "Zadajte meno"
+msgstr ""
 
 #: website/templates/sign_up.html:56
 msgid "Confirm Password"
-msgstr "Potvrďte heslo"
+msgstr ""
 
 #: website/templates/sign_up.html:67
 msgid "Already have an account? Please"
-msgstr "Už máte účet? Prosím"
+msgstr ""
 
 #: website/templates/setting_templates/settings-email.html:62
 #: website/templates/setting_templates/settings-name.html:61
 #: website/templates/setting_templates/settings-password.html:88
 #: website/templates/sign_up.html:72
 msgid "Submit"
-msgstr "Odoslať"
+msgstr ""
 
 #: website/templates/setting_templates/settings-email.html:19
 #: website/templates/setting_templates/settings-language.html:19
 #: website/templates/setting_templates/settings-name.html:19
 #: website/templates/setting_templates/settings-password.html:19
 msgid "Email"
-msgstr "Email"
+msgstr ""
 
 #: website/templates/setting_templates/settings-email.html:29
 #: website/templates/setting_templates/settings-language.html:29
 #: website/templates/setting_templates/settings-name.html:29
 #: website/templates/setting_templates/settings-password.html:29
 msgid "Language"
-msgstr "Jazyk"
+msgstr ""
 
 #: website/templates/setting_templates/settings-email.html:42
 msgid "Change email"
-msgstr "Zmeniť email"
+msgstr ""
 
 #: website/templates/setting_templates/settings-email.html:48
 msgid "New email"
-msgstr "Nový email"
+msgstr ""
 
 #: website/templates/setting_templates/settings-email.html:55
 msgid "Enter new email"
-msgstr "Zadajte nový email"
+msgstr ""
 
 #: website/templates/setting_templates/settings-email.html:58
 msgid "Current email:"
-msgstr "Aktuálny email:"
+msgstr ""
 
 #: website/templates/setting_templates/settings-language.html:40
 msgid "Select language"
-msgstr "Vyberte jazyk"
+msgstr ""
 
 #: website/templates/setting_templates/settings-language.html:44
 msgid "Choose a locale:"
-msgstr "Zvolte jazyk:"
+msgstr ""
 
 #: website/templates/setting_templates/settings-language.html:46
 msgid "English"
-msgstr "Angličtina"
+msgstr ""
 
 #: website/templates/setting_templates/settings-language.html:47
 msgid "Czech"
-msgstr "Čeština"
+msgstr ""
 
 #: website/templates/setting_templates/settings-language.html:48
 msgid "Slovak"
-msgstr "Slovenčina"
+msgstr ""
 
 #: website/templates/setting_templates/settings-name.html:41
 msgid "Change name"
-msgstr "Zmeniť meno"
+msgstr ""
 
 #: website/templates/setting_templates/settings-name.html:46
 msgid "New name"
-msgstr "Nové meno"
+msgstr ""
 
 #: website/templates/setting_templates/settings-name.html:53
 msgid "Enter new name"
-msgstr "Zadajte nové meno"
+msgstr ""
 
 #: website/templates/setting_templates/settings-password.html:42
 msgid "Change password"
-msgstr "Zmeniť heslo"
+msgstr ""
 
 #: website/templates/setting_templates/settings-password.html:47
 msgid "Current password"
-msgstr "Aktuálne heslo"
+msgstr ""
 
 #: website/templates/setting_templates/settings-password.html:54
 msgid "Enter old password"
-msgstr "Zadajte staré heslo"
+msgstr ""
 
 #: website/templates/setting_templates/settings-password.html:61
 #: website/templates/setting_templates/settings-password.html:74
 msgid "New password"
-msgstr "Nové heslo"
+msgstr ""
 
 #: website/templates/setting_templates/settings-password.html:68
 msgid "Enter new password"
-msgstr "Zadajte nové heslo"
+msgstr ""
 
 #: website/templates/setting_templates/settings-password.html:81
 msgid "Repeat new password"
-msgstr "Zopakujte nové heslo"
-
-#~ msgid "test"
-#~ msgstr "slovensky"
-
-#~ msgid "TESTSTRING"
-#~ msgstr "sk teststring"
+msgstr ""
 

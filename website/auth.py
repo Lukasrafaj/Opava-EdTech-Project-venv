@@ -74,6 +74,18 @@ def change_password():
 @auth.route('/settings-email',methods=['GET', 'POST'])
 @login_required
 def change_email():
+    if request.method == 'POST':
+        new_email = request.form.get('newemail')
+        if new_email == current_user.Email:
+            flash(gettext('Submitted email is the same as current email'),'error')
+        elif len(new_email) < 4:
+            flash(gettext('Email must be greater than 3 characters!'),'error')
+        else:
+            flash(gettext('Email successfully changed'),'success')
+            current_user.Email = new_email
+            db.session.add(current_user)
+            db.session.commit()
+
     return render_template('setting_templates/settings-email.html', user=current_user)
 
 
@@ -81,6 +93,17 @@ def change_email():
 @auth.route('/settings-name',methods=['GET', 'POST'])
 @login_required
 def change_name():
+    if request.method == 'POST':
+        new_name = request.form.get('newname')
+        if new_name == current_user.Email:
+            flash(gettext('Submitted name is the same as current name'),'error')
+        elif len(new_name) < 2:
+            flash(gettext('Name must be greater than 1 characters!'),'error')
+        else:
+            flash(gettext('Name successfully changed'),'success')
+            current_user.Name = new_name
+            db.session.add(current_user)
+            db.session.commit()
     return render_template('setting_templates/settings-name.html', user=current_user)
 
 

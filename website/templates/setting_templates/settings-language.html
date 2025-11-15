@@ -11,22 +11,22 @@
                 <div class="divider"></div>
                 <button class="menu-item" id="NameChange">
                     <span class="menu-icon">&#128100;</span>
-                    <span>Name</span>
+                    <span>{{ _('Name') }}</span>
                 </button>
                 <div class="divider"></div>
                 <button class="menu-item" id="EmailChange">
                     <span class="menu-icon">&#128231;</span>
-                    <span>Email</span>
+                    <span>{{ _('Email') }}</span>
                 </button>
                 <div class="divider"></div>
                 <button class="menu-item" id="PasswordChange">
                     <span class="menu-icon">&#128274;</span>
-                    <span>Password</span>
+                    <span>{{ _('Password') }}</span>
                 </button>
                 <div class="divider"></div>
                 <button class="menu-item" id="LanguageChange">
                     <span class="menu-icon">{{ flags[current_locale] }}</span>
-                    <span>Language</span>
+                    <span>{{ _('Language') }}</span>
                 </button>
                 <div class="divider"></div>
 
@@ -37,49 +37,91 @@
 
         <div class = "div-sign-up-container">
             
-            <h1 class = "header-sign-up" align="center">Select language</h1>
+            <h1 class = "header-sign-up" align="center">{{ _('Select language') }}</h1>
             <div class="divider"></div>
                 <div class="div-register-form">
                     
-                        <label class="label-register" for="localeSelect">Choose a locale:</label>
-                        <select class="input-register" id="localeSelect">
-                            <option value="{{ url_for('lang.set_language', lang='en') }}">🇬🇧 English</option>
-                            <option value="{{ url_for('lang.set_language', lang='cs') }}">🇨🇿 Czech</option>
-                            <option value="{{ url_for('lang.set_language', lang='sk') }}">🇸🇰 Slovak</option>
-                        </select>
+                        <label class="label-register" for="localeSelect">{{ _('Choose a locale:') }}</label>
+                        <div class="language-selector">
+                            <button class="language-btn" id="languageBtn" type="button">
+                                <span id="currentLangFlag">🇬🇧</span>
+                                <span id="currentLangName">English</span>
+                            </button>
+                            
+                            <div class="language-options" id="languageOptions">
+                                <div class="language-option" data-lang="en" data-url="{{ url_for('lang.set_language', lang='en') }}">
+                                    🇬🇧 English
+                                </div>
+                                <div class="language-option" data-lang="cs" data-url="{{ url_for('lang.set_language', lang='cs') }}">
+                                    🇨🇿 Czech
+                                </div>
+                                <div class="language-option" data-lang="sk" data-url="{{ url_for('lang.set_language', lang='sk') }}">
+                                    🇸🇰 Slovak
+                                </div>
+                            </div>
+                        </div>
                     
                 </div>
         </div>
         
         
         <script>
+                (function() {
                     const currentLocale = "{{ session.get('lang', 'en') }}";
-                    const localeSelect = document.getElementById('localeSelect');
+                    const languageBtn = document.getElementById('languageBtn');
+                    const languageOptions = document.getElementById('languageOptions');
+                    const currentLangFlag = document.getElementById('currentLangFlag');
+                    const currentLangName = document.getElementById('currentLangName');
                     
-                    console.log('Current locale from session:', currentLocale);
+                    const langMap = {
+                        'en': { flag: '🇬🇧', name: 'English' },
+                        'cs': { flag: '🇨🇿', name: 'Czech' },
+                        'sk': { flag: '🇸🇰', name: 'Slovak' }
+                    };
                     
-                    // Set the selected option based on current locale
-                    const options = localeSelect.querySelectorAll('option');
-                    options.forEach((option, index) => {
-                        // Extract language code from the URL (e.g., /lang/set_language/cs -> cs)
-                        const url = option.value;
-                        const lang = url.split('/').pop(); // Get the last part of the URL
+                    console.log('Language selector initialized');
+                    console.log('Current locale:', currentLocale);
+                    
+                    // Set current language display
+                    if (langMap[currentLocale]) {
+                        currentLangFlag.textContent = langMap[currentLocale].flag;
+                        currentLangName.textContent = langMap[currentLocale].name;
+                    }
+                    
+                    // Highlight active language option
+                    const options = document.querySelectorAll('.language-option');
+                    options.forEach(option => {
+                        const lang = option.getAttribute('data-lang');
+                        if (lang === currentLocale) {
+                            option.classList.add('active');
+                        }
                         
-                        console.log(`Option ${index}: url="${url}", extracted lang="${lang}", matches: ${currentLocale === lang}`);
-                        
-                        if (currentLocale === lang) {
-                            console.log(`Setting selected index to ${index}`);
-                            localeSelect.selectedIndex = index;
+                        // Add click handler
+                        option.addEventListener('click', function() {
+                            const url = this.getAttribute('data-url');
+                            console.log('Navigating to:', url);
+                            window.location.href = url;
+                        });
+                    });
+                    
+                    // Toggle dropdown
+                    languageBtn.addEventListener('click', function(e) {
+                        console.log('Button clicked!');
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const isShowing = languageOptions.classList.contains('show');
+                        console.log('Currently showing:', isShowing);
+                        languageOptions.classList.toggle('show');
+                        console.log('After toggle:', languageOptions.classList.contains('show'));
+                    });
+                    
+                    // Close dropdown when clicking outside
+                    document.addEventListener('click', function(e) {
+                        if (!languageBtn.contains(e.target) && !languageOptions.contains(e.target)) {
+                            languageOptions.classList.remove('show');
                         }
                     });
-                    
-                    console.log('Final selected index:', localeSelect.selectedIndex);
-
-                    // Navigate immediately when locale is changed
-                    localeSelect.addEventListener('change', function() {
-                        console.log('Language changed to:', this.value);
-                        window.location.href = this.value;
-                    });
+                })();
         </script>
             
         

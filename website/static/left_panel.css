@@ -24,13 +24,6 @@
     object-fit: cover; /* or 'contain', 'fill', 'scale-down' */
     object-position: center; /* adjust positioning */
 }
-.div-login-panel {
-    gap: 15px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-right: 15px;
-}
+
 
 

@@ -1,14 +1,14 @@
 {% extends "base.html" %}
-{% block title %}Courses{% endblock %}
+{% block title %}{{ _('Courses') }}{% endblock %}
 
 
 {% block content %}
 <button class = "content-button" id="physicsButton">
-    Physics
+    {{ _('Physics') }}
 </button>
 
 <button class = "content-button" id="mathematicsButton">
-    Mathematics
+    {{ _('Mathematics') }}
 </button>
 
 {% endblock %}
