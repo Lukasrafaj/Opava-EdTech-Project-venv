@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     settingsOption.addEventListener('click', () => {
       console.log('Navigating to settings...');
       dropdownMenu.classList.remove('active');
-      window.location.href = '/settings';
+      window.location.href = '/settings-name';
     });
   }
   
@@ -63,6 +63,14 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('Logging out...');
       dropdownMenu.classList.remove('active');
       window.location.href = '/logout';
+    });
+  }
+  const logo = document.getElementById('logo');
+  if (logo) {
+    logo.addEventListener('click', () => {
+      console.log('Logging out...');
+      dropdownMenu.classList.remove('active');
+      window.location.href = '/';
     });
   }
   

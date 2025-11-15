@@ -38,7 +38,7 @@ def logout():
     return redirect(url_for('views.courses'))
 
 
-@auth.route('/settings', methods=['GET', 'POST'])
+@auth.route('/settings-password', methods=['GET', 'POST'])
 @login_required
 def change_password():
     if request.method == 'POST':
@@ -69,7 +69,25 @@ def change_password():
             except (TypeError, ValueError):
                 flash(gettext('Error verifying password. Please try again.'), 'error')
 
-    return render_template('settings.html', user=current_user)
+    return render_template('setting_templates/settings-password.html', user=current_user)
+
+@auth.route('/settings-email',methods=['GET', 'POST'])
+@login_required
+def change_email():
+    return render_template('setting_templates/settings-email.html', user=current_user)
+
+
+
+@auth.route('/settings-name',methods=['GET', 'POST'])
+@login_required
+def change_name():
+    return render_template('setting_templates/settings-name.html', user=current_user)
+
+
+@auth.route('/settings-language')
+def change_language():
+   
+    return render_template('setting_templates/settings-language.html')
 
 
 

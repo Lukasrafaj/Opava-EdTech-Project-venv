@@ -1,0 +1,37 @@
+.div-settings-container {
+    vertical-align: top;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    margin-top: 30px;
+    
+    
+   
+}
+
+.div-settings-header {
+    display: flex;
+    justify-content: center;
+    
+    
+}
+.div-settings-menu {
+    
+    display: flex;
+    flex-direction: column;
+    
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.05)
+    
+}
+
+.settings-header {
+    margin-top: 10px;
+    
+    font-size: 40px;
+    
+    font-family: roboto, Arial;
+}
+.div-settings-content {
+    
+    margin-left: 20px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.05)
+}

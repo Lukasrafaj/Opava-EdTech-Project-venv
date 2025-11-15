@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang = {{current_locale}}>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Rive Integration</title>
+    <!-- Load Tailwind CSS for modern, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load the Inter font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+    <!-- 
+    *** REVERTED TO CDN: Loading Rive's WebGL/Canvas runtime library from CDN, which requires internet access.
+    -->
+    <script src="https://unpkg.com/@rive-app/canvas@2.19.1/rive.js"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-4 flex items-center justify-center">
+
+    <div id="app" class="bg-white p-8 md:p-12 shadow-2xl rounded-xl max-w-lg w-full transform transition-all duration-300">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4 text-center">Rive Animation Served by Flask</h1>
+        <p class="text-gray-600 mb-6 text-center">
+            This canvas is ready to load your <code>.riv</code> file. Flask serves this HTML page, and the browser handles the animation.
+        </p>
+
+        <!-- Rive Canvas Container -->
+        <div class="relative w-full aspect-video bg-gray-200 rounded-lg overflow-hidden border-4 border-indigo-500/50">
+            <canvas id="riveCanvas" class="w-full h-full"></canvas>
+            <div id="loading" class="absolute inset-0 flex items-center justify-center bg-gray-200 text-indigo-700 font-semibold transition-opacity duration-500">
+                Loading Rive Animation...
+            </div>
+        </div>
+        
+        <div class="mt-6">
+            <h2 class="text-xl font-semibold text-gray-700 mb-2">How it works:</h2>
+            <ul class="text-sm text-gray-500 space-y-2">
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-indigo-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    <span class="font-medium text-gray-700">Flask:</span> Serves this HTML file.
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-5 h-5 text-indigo-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    <span class="font-medium text-gray-700">Rive Runtime:</span> The JavaScript library and the animation file are loaded from the internet.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // *** This is the Rive file URL you can swap out with your own animation ***
+        const RIVE_FILE_URL = 'https://cdn.rive.app/animations/vehicles.riv'; 
+        
+        // Wait for the window to load before starting Rive initialization
+        window.onload = function() {
+            const canvas = document.getElementById('riveCanvas');
+            const loadingIndicator = document.getElementById('loading');
+            
+            // Check if Rive is available globally (from the CDN script tag)
+            if (typeof rive === 'undefined') {
+                console.error("Rive runtime failed to load. Check the CDN link or internet connection.");
+                loadingIndicator.textContent = "Error: Rive runtime not found.";
+                loadingIndicator.classList.add('bg-red-200', 'text-red-700');
+                return;
+            }
+
+            try {
+                // Initialize the Rive animation player
+                const r = new rive.Rive({
+                    canvas: canvas,
+                    src: RIVE_FILE_URL,
+                    autoplay: true,
+                    // If your Rive file uses state machines, you would uncomment and set these:
+                    // stateMachines: 'State Machine Name', 
+                    // artboard: 'Artboard Name',
+                    onLoad: () => {
+                        console.log("Rive animation loaded successfully!");
+                        // Fade out the loading indicator
+                        loadingIndicator.style.opacity = '0';
+                        setTimeout(() => {
+                            loadingIndicator.style.display = 'none';
+                        }, 500);
+                    },
+                    onError: (error) => {
+                        console.error("Error loading Rive file:", error);
+                        loadingIndicator.textContent = "Error loading Rive file. Check the RIVE_FILE_URL.";
+                        loadingIndicator.classList.add('bg-red-200', 'text-red-700');
+                    }
+                });
+            } catch (e) {
+                console.error("Failed to initialize Rive:", e);
+                loadingIndicator.textContent = "Initialization Failed.";
+                loadingIndicator.classList.add('bg-red-200', 'text-red-700');
+            }
+        };
+    </script>
+</body>
+</html>

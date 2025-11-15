@@ -11,12 +11,13 @@ def default():
 @views.route('/home')
 @login_required
 def home():
-    print("Authenticated:", current_user.is_authenticated)
+
     return render_template('home.html')
 
 @views.route('/profile')
 @login_required
 def profile():
+
     return render_template('profile.html')
 
 @views.route('/courses')
@@ -30,6 +31,12 @@ def about():
 @views.route('/donate')
 def donate():
     return render_template('donate.html')
+
+@views.route('/courses/physics')
+def rivetest():
+        
+    return render_template('rive_apps/rive_test.html')
+
 
 
 

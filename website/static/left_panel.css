@@ -14,7 +14,9 @@
     background-size: cover;      /* scales to cover entire container */
     background-position: center;
     overflow: hidden;
+    
 }
+
 .image-animal-general {
   
     width: 100%;
@@ -32,6 +34,3 @@
 }
 
 
-.div-submit-button {
-    margin-top: 50px;
-}

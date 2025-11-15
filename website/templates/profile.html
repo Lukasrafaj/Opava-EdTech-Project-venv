@@ -4,17 +4,29 @@
 
 
 {% block content_section %}
-<div class="profile-container">
-    <div class="profile-header">
-      <h1>Profile</h1>
+<div class="div-profile-container">
+    <div class="div-profile-header">
+      <h1 class="header-sign-up" align="center">Profile</h1>
     </div>
+    <div class="divider"></div>
+    
+    <div class="profile-info">
+      <p class = "profile-data"><span class="profile-label">Name:</span> {{ current_user.Name }}</p>
+    </div>
+    
 
     <div class="profile-info">
-      <p><span class="label">Name:</span> {{ current_user.Name }}</p>
-      <p><span class="label">Email:</span> {{ current_user.Email }}</p>
+      <p class = "profile-data"><span class="profile-label">Email:</span> {{ current_user.Email }}</p>
     </div>
+    
 
-    <button class="btn-edit">Edit Profile</button>
-    <p>{{current_user.Password}}</p>
+      <div class="profile-info">
+    <p class = "profile-data"><span class="profile-label">Locale:</span> {{ current_user.lang }}</p> 
+    </div>
+    
+    <div class="profile-info">
+      <button class="login-button">Edit Profile</button>
+    </div>
+    
   </div>
 {% endblock %}

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+
+
+
+{% block content_section %}
+
+<div class="div-settings-container">
+
+    <div class="div-settings-menu">
+                <div class="divider"></div>
+                <button class="menu-item" id="NameChange">
+                    <span class="menu-icon">&#128100;</span>
+                    <span>Name</span>
+                </button>
+                <div class="divider"></div>
+                <button class="menu-item" id="EmailChange">
+                    <span class="menu-icon">&#128231;</span>
+                    <span>Email</span>
+                </button>
+                <div class="divider"></div>
+                <button class="menu-item" id="PasswordChange">
+                    <span class="menu-icon">&#128274;</span>
+                    <span>Password</span>
+                </button>
+                <div class="divider"></div>
+                <button class="menu-item" id="LanguageChange">
+                    <span class="menu-icon">{{ flags[current_locale] }}</span>
+                    <span>Language</span>
+                </button>
+                <div class="divider"></div>
+
+    </div>
+   
+   
+    <div class="div-settings-content">
+
+        
+            
+            <form method = "POST" action = "/settings-email">
+                <div class = "div-sign-up-container">
+                    <h1 class = "header-sign-up" align="center">Change email</h1>
+                    <div class="divider"></div>
+                    
+                        <div class = "div-register-form">
+                            <label 
+                            class = "label-register" 
+                            for="email">New email</label>
+
+                            <input 
+                            type="email" 
+                            class = "input-register" 
+                            id="newemail" 
+                            name="newemail" 
+                            placeholder="Enter new email" >
+
+                        </div>
+                    <p>Current email: {{current_user.Email}}</p>
+
+                    <div type="submit" class = "div-submit-button">
+                        <button class = "login-button">
+                            Submit
+                        </button>
+                    </div>
+            
+                </div>
+            </form>
+        
+    </div>
+</div>
+ {% endblock %}
